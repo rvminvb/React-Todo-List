@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Jura&display=swap');
 
-* {
+/* * {
     margin: 0;
     padding: 0;
     outline: 0;
-}
+} */
 
 body {
-    background-color:#0abab5;
-    font-family: "Comfortaa", sans-serif;
+    background-color:#ffdb58;
+    font-family: "Jura", sans-serif;
     text-align: center;
     background-image: radial-gradient(#bfc0c1 15%, transparent 0);
     background-size: 40px 40px;
@@ -33,7 +33,7 @@ body {
 .heading h1 {
     width: 60%;
     margin-top: 30px;
-    background-color: #0abab5;
+    background-color:#ffdb58;
     padding: 0.2rem 1.2rem;
     color: #494a4b;
 }
@@ -44,9 +44,9 @@ body {
 
 .todolist input {  
     border: 0;
-    border-bottom: 3px dashed #0abab5;
+    border-bottom: 3px dashed#ffdb58;
     background-color: transparent;
-    font-family: "Comfortaa", sans-serif;
+    font-family: "Jura", sans-serif;
     font-size: 1.3rem;
     padding: 10px 15px;
     width: 70%;
@@ -57,7 +57,7 @@ body {
     margin-top: 30px;
     border: 3px solid hsl(198, 1%, 29%);
     padding: 10px 15px;
-    font-family: "Comfortaa", sans-serif;
+    font-family: "Jura", sans-serif;
     font-size: 0.9rem;
 }
 
@@ -72,3 +72,34 @@ body {
     font-weight: 300;
     color: #494a4b;
 }
+
+
+
+ 
+  ul.header li {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+  }
+  ul.header {
+    background-color: #494a4b;
+    padding: 0;
+  }
+  ul.header li a {
+    color: #FFF;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 20px;
+    display: inline-block;
+  }
+  .content {
+    background-color: #FFF;
+    padding: 20px;
+  }
+  .content h2 {
+    padding: 0;
+    margin: 0;
+  }
+  .content li {
+    margin-bottom: 10px;
+  }

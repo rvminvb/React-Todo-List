@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import TodoItem from "./TodoItem";
-import './App.css';
-import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import "./App.css";
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
 
 
 function ToDo() {
@@ -12,14 +12,12 @@ function ToDo() {
     function addItem() {
           if (input.trim()) {
             setItems(prevData => {
-                return [...prevData, {name: input, priority: 2, id: '' + idCounter}];
+                return [...prevData, {name: input, priority: false, id: "" + idCounter}];
                 });
-                setIdCounter(prevData => ++prevData);
+                setIdCounter(counter => ++counter);
             setInput("");
         }
     }
-
-  
 
     function removeItem(id) {
         setItems(prevData => {
@@ -30,24 +28,21 @@ function ToDo() {
     }
 
     function markAsImportant(id) {
-        setItems(prevData =>  {
-            return prevData.map((item) => {
-                if (item.id === id) {
-                item.priority = 1;
-                } 
-                return item;
-            })
-        });       
+        setItems(prevData => prevData.map(item => 
+            item.id === id
+            ? { ...item, priority: !item.priority }
+            : item
+        ));
     }
 
     function onKeyPressHandler(event) {
-        if (event.key === 'Enter') {
+        if (event.key === "Enter") {
             addItem();
         }
     }
     
     function onDragEnd(result) {
-        const { destination, source, draggableId } = result;
+        const { destination, source } = result;
 
         if (!destination) {
             return; 
@@ -61,8 +56,7 @@ function ToDo() {
         const newItems= Array.from(items);
         const item = newItems.splice(source.index, 1);
         newItems.splice(destination.index, 0, ...item);
-        console.log(items, newItems);
-        setItems(() => newItems);
+        setItems(newItems);
     };
 
     return (
@@ -80,21 +74,19 @@ function ToDo() {
                   onChange={(event) => {setInput(event.target.value)}}
               />
               <button onClick={addItem}>Добавить</button>
-        <Droppable droppableId='text'>
+        <Droppable droppableId="text">
             {provided => (
-                <div className="items">
-                    <ul ref={provided.innerRef} {...provided.droppableProps}>
-                        {items.map((item, index) => (
-                            <TodoItem
-                                key={item.id}
-                                index={index}
-                                item={item}
-                                onCheck={removeItem}
-                                onMark={markAsImportant}
-                            />
-                        ))}
-                        {provided.placeholder}
-                    </ul>
+                <div className="items" ref={provided.innerRef} {...provided.droppableProps}>
+                    {items.map((item, index) => (
+                        <TodoItem
+                            key={item.id}
+                            index={index}
+                            item={item}
+                            onCheck={removeItem}
+                            onMark={markAsImportant}
+                        />
+                    ))}
+                    {provided.placeholder}
                     {items.length===0 &&
                     <span>Нет задач</span> 
                     }

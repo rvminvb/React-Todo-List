@@ -1,8 +1,15 @@
 .item {
     display: flex;
-    justify-content: space-between;
     background-color: #f1f5f8;
+    margin-top: 10px;
+    line-break: anywhere;
 }
-.priority {
-    background-color: #FFCBDB;
+
+.item .actions-group {
+    margin-left: auto;
+    display: flex;
+
+}
+.item .actions-group img {
+    margin-left: 10px;
 }

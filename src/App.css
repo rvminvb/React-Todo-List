@@ -1,14 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Jura&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed&display=swap');
 
 
 body {
     background-color: #97999B;
-    font-family: "Jura", sans-serif;
+    font-family: "Open Sans Condensed", sans-serif;
+    font-weight: 300;
     text-align: center;
-    background-image: radial-gradient(#bfc0c1 15%, transparent 0);
-    background-size: 40px 40px;
-
-   
+    letter-spacing: 3px;
 }
 
 .todolist {
@@ -28,9 +26,10 @@ body {
 .heading h1 {
     width: 60%;
     margin-top: 30px;
-    background-color:#ffdb58;
+    background-color:#F9E547;
     padding: 0.2rem 1.2rem;
     color: #494a4b;
+    font-weight: 300;
 }
 
 .todolist form {
@@ -39,25 +38,28 @@ body {
 
 .todolist input {  
     border: 0;
-    border-bottom: 3px dashed#ffdb58;
+    border-bottom: 3px solid #F9E547;
     background-color: transparent;
-    font-family: "Jura", sans-serif;
+    font-family: "Open Sans Condensed", sans-serif;
     font-size: 1.3rem;
     padding: 10px 15px;
     width: 70%;
     color: #494a4b;
+    font-weight: 300;
 }
 
 .todolist button {
     margin-top: 30px;
     border: 3px solid hsl(198, 1%, 29%);
     padding: 10px 15px;
-    font-family: "Jura", sans-serif;
+    font-family: "Open Sans Condensed", sans-serif;
     font-size: 0.9rem;
+    font-weight: 300;
+    letter-spacing: 3px;
 }
 
 .items {
-    margin: 50px 0 0 30px;
+    margin-top: 50px;
 }
 
 .items ul li {
@@ -68,9 +70,6 @@ body {
     color: #494a4b;
 }
 
-
-
- 
   ul.header li {
     display: inline;
     list-style-type: none;
@@ -82,7 +81,7 @@ body {
   }
   ul.header li a {
     color: #FFF;
-    font-weight: bold;
+    font-weight: 300;
     text-decoration: none;
     padding: 20px;
     display: inline-block;

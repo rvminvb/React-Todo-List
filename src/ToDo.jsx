@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TodoItem from "./TodoItem";
 import "./App.css";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
@@ -35,6 +35,30 @@ function ToDo() {
         ));
     }
 
+    useEffect(() => {
+        const items = JSON.parse(localStorage.getItem('items'));
+        if (items) {
+          setItems(items);
+        }
+      }, []);
+    
+    useEffect(() => {
+        localStorage.setItem('items', JSON.stringify(items));
+      }, [items]);
+
+
+      useEffect(() => {
+        const idCounter = JSON.parse(localStorage.getItem('idCounter'));
+        if (idCounter) {
+          setIdCounter(idCounter);
+        }
+      }, []);
+    
+    useEffect(() => {
+        localStorage.setItem('idCounter', JSON.stringify(idCounter));
+      }, [idCounter]);
+
+      
     function onKeyPressHandler(event) {
         if (event.key === "Enter") {
             addItem();

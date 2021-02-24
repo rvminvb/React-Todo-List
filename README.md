@@ -1,4 +1,4 @@
-![screenshot](/public/images/screenshot.png)
+
 
 # React Todo List
 
@@ -11,5 +11,9 @@
 * Роутинг 
 * Помечание важных задач 
 * Drag and drop
+  
 ## Спецификации
 * React 17
+
+## Демо
+* https://rvminvb.github.io/React-Todo-List/#/todo

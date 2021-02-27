@@ -4,11 +4,6 @@ object-assign
 @license MIT
 */
 
-/*!
-        LegoMushroom @legomushroom https://legomushroom.com
-        MIT License 2014
-       */
-
 /** @license React v0.20.1
  * scheduler.production.min.js
  *

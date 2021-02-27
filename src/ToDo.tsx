@@ -1,25 +1,30 @@
-import React, { useState, useEffect } from "react";
-import TodoItem from "./TodoItem";
-import "./App.css";
-import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import React, { useState, useEffect } from 'react';
+import TodoItem from './TodoItem';
+import './App.css';
+import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
 
+export type item = {
+    name: string;
+    priority: boolean;
+    id: string;
+}
 
 function ToDo() {
-    const [input, setInput] = useState("");
-    const [items, setItems] = useState([]);
+    const [input, setInput] = useState('');
+    const [items, setItems] = useState<Array<item>>([]);
     const [idCounter, setIdCounter] = useState(1);
 
     function addItem() {
           if (input.trim()) {
             setItems(prevData => {
-                return [...prevData, {name: input, priority: false, id: "" + idCounter}];
+                return [...prevData, {name: input, priority: false, id: '' + idCounter}];
                 });
                 setIdCounter(counter => ++counter);
-            setInput("");
+            setInput('');
         }
     }
 
-    function removeItem(id) {
+    function removeItem(id: string) {
         setItems(prevData => {
             return prevData.filter((item) => {
                 return item.id !== id;
@@ -27,7 +32,7 @@ function ToDo() {
         });
     }
 
-    function markAsImportant(id) {
+    function markAsImportant(id:string) {
         setItems(prevData => prevData.map(item => 
             item.id === id
             ? { ...item, priority: !item.priority }
@@ -36,7 +41,7 @@ function ToDo() {
     }
 
     useEffect(() => {
-        const items = JSON.parse(localStorage.getItem('items'));
+        const items = JSON.parse(localStorage.getItem('items') || '');
         if (items) {
           setItems(items);
         }
@@ -48,7 +53,7 @@ function ToDo() {
 
 
       useEffect(() => {
-        const idCounter = JSON.parse(localStorage.getItem('idCounter'));
+        const idCounter = JSON.parse(localStorage.getItem('idCounter') || '');
         if (idCounter) {
           setIdCounter(idCounter);
         }
@@ -59,13 +64,13 @@ function ToDo() {
       }, [idCounter]);
 
       
-    function onKeyPressHandler(event) {
-        if (event.key === "Enter") {
+    function onKeyPressHandler(event: React.KeyboardEvent) {
+        if (event.key === 'Enter') {
             addItem();
         }
     }
     
-    function onDragEnd(result) {
+    function onDragEnd(result: DropResult) {
         const { destination, source } = result;
 
         if (!destination) {
@@ -87,20 +92,20 @@ function ToDo() {
         <DragDropContext
         onDragEnd={onDragEnd}>
 
-      <div className="todolist">
-          <div className="heading">
-              <h1 className="title">Планер</h1>
+      <div className='todolist'>
+          <div className='heading'>
+              <h1 className='title'>Планер</h1>
           </div>
               <input
-                  type="text"
+                  type='text'
                   value={input}
                   onKeyPress={onKeyPressHandler}
                   onChange={(event) => {setInput(event.target.value)}}
               />
               <button onClick={addItem}>Добавить</button>
-        <Droppable droppableId="text">
+        <Droppable droppableId='text'>
             {provided => (
-                <div className="items" ref={provided.innerRef} {...provided.droppableProps}>
+                <div className='items' ref={provided.innerRef} {...provided.droppableProps}>
                     {items.map((item, index) => (
                         <TodoItem
                             key={item.id}

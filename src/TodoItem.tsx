@@ -4,9 +4,17 @@ import flag from "./icons/flag.svg";
 import flagFill from "./icons/flag-fill.svg";
 import { Draggable } from "react-beautiful-dnd";
 import "./ToDoItem.css"
+import { item } from "./ToDo";
 
+type functionProps = {
+    index: number;
+    item: item;
+    onCheck(id: string): void;
+    onMark(id: string): void;
 
-function TodoItem({ index, item, onCheck, onMark }) {
+}
+
+function TodoItem({ index, item, onCheck, onMark }: functionProps) {
     return (
         <>
             <Draggable draggableId={item.id} index={index}>

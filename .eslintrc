@@ -1,0 +1,45 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "prettier"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:prettier/recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true,
+            "arrowFunctions": true
+          }
+    },
+    "env": {
+        "es6": true,
+        "browser": true,
+        "jest": true
+    },
+    "settings": {
+        "react": {
+          "version": "detect"
+        },
+        "import/resolver": {
+          "node": {
+            "extensions": [".js", ".jsx", ".ts", ".tsx"],
+            "paths": ["./src"]
+          }
+        }
+      },
+    "rules": {
+        "no-debugger": "off",
+        "no-console": 0,
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off"
+    }
+  }

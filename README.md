@@ -18,3 +18,6 @@
 ## Спецификации
 * React 17
 * TypeScript
+* ESLint
+* Prettier
+* Styled-Components
